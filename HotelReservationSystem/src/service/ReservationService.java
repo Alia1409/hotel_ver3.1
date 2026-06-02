@@ -25,13 +25,11 @@ public class ReservationService {
     public boolean createReservation(Reservation r) {
         
         reservations.add(r);
-        // FIXED: Changed saveData() to saveReservations()
         storageManager.saveReservations(reservations); 
         return true;
     }
 
     public boolean updateReservation(Reservation r) {
-        // (Your existing validation logic stays here...)
 
         for (int i = 0; i < reservations.size(); i++) {
             if (reservations.get(i).getId().equals(r.getId())) {
@@ -39,18 +37,15 @@ public class ReservationService {
                 break;
             }
         }
-        // FIXED: Changed saveData() to saveReservations()
         storageManager.saveReservations(reservations); 
         return true;
     }
 
     public void deleteReservation(String id) {
         reservations.removeIf(r -> r.getId().equals(id));
-        // FIXED: Changed saveData() to saveReservations()
         storageManager.saveReservations(reservations); 
     }
     public void processCheckIn(String id) {
-        // FIXED: Explicitly added the correct stream assignment wrapper
         Reservation res = reservations.stream()
                 .filter(r -> r.getId().equals(id))
                 .findFirst()
@@ -58,7 +53,6 @@ public class ReservationService {
 
         if (res != null) {
             res.setStatus("in-progress");
-            // FIXED: Changed r.getRoomNumber() to res.getRoomNumber()
             Room room = roomService.getRoomByNumber(res.getRoomNumber());
             if (room != null) {
                 room.setStatus("occupied");
@@ -76,7 +70,6 @@ public class ReservationService {
 
         if (res != null) {
             res.setStatus("completed");
-            // FIXED: Changed r.getRoomNumber() to res.getRoomNumber()
             Room room = roomService.getRoomByNumber(res.getRoomNumber());
             if (room != null) {
                 room.setStatus("available");
@@ -100,6 +93,6 @@ public class ReservationService {
                 }
             }
         }
-        return true; // No overlaps found, the room is free!
+        return true; // No overlaps found, the room is free
     }    
 }

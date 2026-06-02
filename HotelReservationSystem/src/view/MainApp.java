@@ -55,7 +55,7 @@ public class MainApp extends JFrame {
         add(tabPane);
     }
 
-    // --- VIEW 1: DAILY OCCUPANCY PANEL ---
+    // VIEW 1: DAILY OCCUPANCY PANEL 
     private JPanel buildOccupancyView() {
         JPanel panel = new JPanel(new BorderLayout(15, 15));
         panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -93,7 +93,7 @@ public class MainApp extends JFrame {
         return panel;
     }
 
-    // --- VIEW 2: RESERVATION MANAGER TAB (CRUD WITH FILTERS) ---
+    //VIEW 2: RESERVATION MANAGER TAB (CRUD WITH FILTERS) 
     private JPanel buildReservationView() {
         JPanel mainBox = new JPanel(new BorderLayout(15, 15));
         mainBox.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -261,7 +261,6 @@ public class MainApp extends JFrame {
                 JOptionPane.showMessageDialog(this, "Use RES-001 style.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            // ERROR HANDLING: EMAIL FORMAT VERIFICATION DURING CREATION
             if (!inputEmail.matches(EMAIL_REGEX)) {
                 JOptionPane.showMessageDialog(this, "Invalid Email syntax! (e.g., example@domain.com)", "Formatting Error", JOptionPane.ERROR_MESSAGE);
                 return;
@@ -294,7 +293,6 @@ public class MainApp extends JFrame {
                     JOptionPane.showMessageDialog(this, "Invalid Booking ID format!", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-                // ERROR HANDLING: EMAIL FORMAT VERIFICATION DURING RECORD UPDATING
                 if (!inputEmail.matches(EMAIL_REGEX)) {
                     JOptionPane.showMessageDialog(this, "Invalid Email syntax! (e.g., example@domain.com)", "Formatting Error", JOptionPane.ERROR_MESSAGE);
                     return;
@@ -343,7 +341,7 @@ public class MainApp extends JFrame {
         return mainBox;
     }
 
-    // --- VIEW 3: ROOM MANAGEMENT TAB (CRUD WITH DYNAMIC SORTING) ---
+    // VIEW 3: ROOM MANAGEMENT TAB (CRUD WITH DYNAMIC SORTING)
     private JPanel buildRoomView() {
         JPanel mainBox = new JPanel(new BorderLayout(15, 15));
         mainBox.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -486,11 +484,9 @@ public class MainApp extends JFrame {
         SwingUtilities.invokeLater(() -> new MainApp().setVisible(true));
     }
  
-    // CSV EXPORT FIX: Compiles monthly_report variables securely and includes cleaned Special Notes column
     private void exportToCSV(File file) {
         List<Reservation> reservations = resService.getAllReservations();
         try (PrintWriter pw = new PrintWriter(new FileWriter(file))) {
-            // Write exact header mapping columns matching your layout screenshot
             pw.println("ID,RoomNumber,Guest,CheckIn,CheckOut,Nights,TotalAmount,Status,Special Notes");
             
             for (Reservation r : reservations) {

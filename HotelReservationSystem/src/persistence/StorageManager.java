@@ -34,7 +34,7 @@ public class StorageManager {
         }
     }
 
-    // --- SAVE RESERVATIONS WITH SPECIAL NOTES PROPERTY ---
+    // SAVE RESERVATIONS WITH SPECIAL NOTES PROPERTY
     public void saveReservations(List<Reservation> reservations) {
         try (PrintWriter pw = new PrintWriter(new FileWriter(RESERVATIONS_FILE))) {
             pw.println("[");
@@ -105,7 +105,7 @@ public class StorageManager {
         return list;
     }
 
-    // --- LOAD RESERVATIONS SAFELY EXTRACTION LINE ---
+    // LOAD RESERVATIONS SAFELY EXTRACTION LINE 
     public List<Reservation> loadReservations() {
         List<Reservation> list = new ArrayList<>();
         File file = new File(RESERVATIONS_FILE);

@@ -10,7 +10,6 @@ public class RoomService {
 
     public RoomService(StorageManager storageManager) {
         this.storageManager = storageManager;
-        // FIXED: Changed loadData() to loadRooms()
         this.rooms = storageManager.loadRooms(); 
     }
 
@@ -20,7 +19,6 @@ public class RoomService {
 
     public void addRoom(Room room) {
         rooms.add(room);
-        // FIXED: Changed saveData() to saveRooms()
         storageManager.saveRooms(rooms); 
     }
 
@@ -31,13 +29,11 @@ public class RoomService {
                 break;
             }
         }
-        // FIXED: Changed saveData() to saveRooms()
         storageManager.saveRooms(rooms); 
     }
 
     public void deleteRoom(String roomNumber) {
         rooms.removeIf(r -> r.getRoomNumber().equals(roomNumber));
-        // FIXED: Changed saveData() to saveRooms()
         storageManager.saveRooms(rooms); 
     }
 

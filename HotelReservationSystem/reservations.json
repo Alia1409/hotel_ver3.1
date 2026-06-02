@@ -1,0 +1,24 @@
+[
+  {
+    "id": "RES-001",
+    "roomNumber": "101",
+    "guestName": "lala",
+    "email": "lal@gmail.com",
+    "phone": "1234567",
+    "checkInDate": "01-06-2026",
+    "checkOutDate": "02-06-2026",
+    "status": "confirmed",
+    "specialNotes": "baby bed"
+  },
+  {
+    "id": "RES-009",
+    "roomNumber": "102",
+    "guestName": "ljkhg",
+    "email": "gyftdd@gmail.com",
+    "phone": "1234567",
+    "checkInDate": "02-06-2026",
+    "checkOutDate": "03-06-2026",
+    "status": "confirmed",
+    "specialNotes": "extra bed"
+  }
+]

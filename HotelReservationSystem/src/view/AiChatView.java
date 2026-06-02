@@ -13,7 +13,6 @@ public class AiChatView extends JPanel {
     private JTextField txtInput;
     private JButton btnSubmit;
 
-    // FIXED: Changed the parameter from HotelController to the two required services
     public AiChatView(RoomService roomService, ReservationService reservationService) {
         this.aiChatController = new AIChatController(roomService, reservationService);
         buildLayout();
